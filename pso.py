@@ -13,10 +13,10 @@ def func1(x):
 	diff = 0
 	avg = sum(x)/float(len(x))
 	for i in range (0,len(x)):
-		if x[i]==-1:
+		if x[i]==-1 or x[i]==0:
 			t=0
 		else:
-			t=x[i]
+			t=1
 		diff = diff+t-avg
 		if x[i]>0:
 			a = a+1
@@ -75,7 +75,9 @@ class Particle:
 class PSO():
 	def __init__(self, costFunc, x0,num_particles, maxiter, verbose=False):
 		global num_dimensions
-
+		
+		global X_PSO
+		X_PSO=[]
 		
 		err_best_g=0.1                   # best error for group
 		pos_best_g=[]                   # best position for group
@@ -114,9 +116,12 @@ class PSO():
 		print('\nFINAL SOLUTION:')
 		print(pos_best_g)
 		print(err_best_g)
+		for i in range(0,num_particles):
+			X_PSO.append(swarm[i].position_i)
+		#return X_PSO
 
 if __name__ == "__PSO__":
-    main()
+	main()
 
 #--- RUN ----------------------------------------------------------------------+
 
@@ -132,5 +137,6 @@ for item in initial:
 print initial
 
 PSO(func1, initial, num_particles=len(initial), maxiter=10, verbose=True)
+print (X_PSO)
 
 #--- END ----------------------------------------------------------------------+
