@@ -84,12 +84,12 @@ class PSO():
 
 		# establish the swarm
 		swarm=[]
-		print num_particles
+		#print num_particles
 		for i in range(0,num_particles):
 			num_dimensions=len(x0[i])
 			#print x0[i]
 			swarm.append(Particle(x0[i]))
-			print swarm[i].position_i
+			#print swarm[i].position_i
 
 		# begin optimization loop
 		i=0
@@ -109,7 +109,7 @@ class PSO():
 			for j in range(0,num_particles):
 				swarm[j].update_velocity(pos_best_g)
 				swarm[j].update_position()
-				print swarm[j].position_i
+				#print swarm[j].position_i
 			i+=1
 
 		# print final results
@@ -134,7 +134,7 @@ for item in initial:
 		if item[i] == 0:
 			item[i] = -1
 	
-print initial
+print (initial)
 
 PSO(func1, initial, num_particles=len(initial), maxiter=10, verbose=True)
 print (X_PSO)
