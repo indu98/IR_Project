@@ -12,6 +12,7 @@ import wordcloud
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import sys
 
 import unicodedata
 import re
@@ -541,6 +542,7 @@ class PSO():
       i+=1
 
     # print final results
+    print("###################### PSO ####################")
     print('\nFINAL SOLUTION:')
     print(pos_best_g)
     print(err_best_g)
@@ -559,7 +561,7 @@ if __name__ == "__PSO__":
 X = tfidf.todense()
 X=X.tolist()
 
-print(type(X))
+#print(type(X))
 #print(X.shape)
 #print (X)
 for item in X:
@@ -571,7 +573,8 @@ for item in X:
 #print (initial)
 
 PSO(func1, X, num_particles=len(X), maxiter=3, verbose=True)
-#print (X_PSO)
+print("#################X_PSO#################")
+print (X_PSO)
 
 #--- END ----------------------------------------------------------------------+
 
@@ -594,10 +597,10 @@ print(km_model.cluster_centers_)
 
 t=km_model.cluster_centers_
 
-print (type(t))
-print (t.shape)
+#print (type(t))
+#print (t.shape)
 t=t[:,0:2]
-print (t.shape)
+#print (t.shape, type(t))
 df_centers = pd.DataFrame(t, columns=['x', 'y'])
 
 """
@@ -610,7 +613,7 @@ print(df_centers)
 
 # K-means model labels and actual document labels
 df_documents = pd.DataFrame(data_processed, columns=['Label', 'Document'])
-print(df_documents.head())
+#print(df_documents.head())
 
 
 km_model_labels = km_model.labels_.tolist()
