@@ -1,4 +1,4 @@
-from __future__ import division
+#from __future__ import division
 import numpy as np
 import random
 import math
@@ -136,7 +136,32 @@ for item in initial:
 	
 print (initial)
 
-PSO(func1, initial, num_particles=len(initial), maxiter=10, verbose=True)
+PSO(func1, initial, num_particles=len(initial), maxiter=1, verbose=True)
 print (X_PSO)
+############### Code to be added ###############
+Temp = list(X_PSO)
+t_len=len(Temp[0])
+i=0
+while i<t_len :
+	print ("I")
+	print i
+	flag=1
+	for j in range(0,len(Temp)):
+		print("J")
+		print j
+	     	if Temp[j][i]!=0 :
+			flag=0
+			break
+	if (flag):
+		for row in Temp:
+			del row[i]
+			t_len=t_len-1
+	i=i+1
+
+print (Temp)
+
+X_PSO = list(Temp)
+
+#############################################
 
 #--- END ----------------------------------------------------------------------+
